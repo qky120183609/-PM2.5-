@@ -19,27 +19,26 @@ st.divider()
 # 定义所有可执行的脚本配置
 SCRIPT_CONFIGS = {
     "趋势图": [
-        {"name": "北京月均PM2.5指数", "script": "FP/beijing_monthly_avg.py"},
-        {"name": "上海月均PM2.5指数", "script": "FP/shanghai_monthly_avg.py"},
-        {"name": "成都月均PM2.5指数", "script": "FP/chengdu_monthly_avg.py"},
-        {"name": "广州月均PM2.5指数", "script": "FP/guangzhou_monthly_avg.py"},
-        {"name": "沈阳月均PM2.5指数", "script": "FP/shenyang_monthly_avg.py"}
+        {"name": "北京月均PM2.5指数", "script": "beijing_monthly_avg.py"},
+        {"name": "上海月均PM2.5指数", "script": "shanghai_monthly_avg.py"},
+        {"name": "成都月均PM2.5指数", "script": "chengdu_monthly_avg.py"},
+        {"name": "广州月均PM2.5指数", "script": "guangzhou_monthly_avg.py"},
+        {"name": "沈阳月均PM2.5指数", "script": "shenyang_monthly_avg.py"}
     ],
     "饼图": [
-        {"name": "北京各站点PM2.5等级占比", "script": "FP/beijing_pie_charts.py"},
-        {"name": "上海各站点PM2.5等级占比", "script": "FP/shanghai_pie_charts.py"},
-        {"name": "成都各站点PM2.5等级占比", "script": "FP/chengdu_pie_charts.py"},
-        {"name": "广州各站点PM2.5等级占比", "script": "FP/guangzhou_pie_charts.py"},
-        {"name": "沈阳各站点PM2.5等级占比", "script": "FP/shenyang_pie_charts.py"}
+        {"name": "北京各站点PM2.5等级占比", "script": "beijing_pie_charts.py"},
+        {"name": "上海各站点PM2.5等级占比", "script": "shanghai_pie_charts.py"},
+        {"name": "成都各站点PM2.5等级占比", "script": "chengdu_pie_charts.py"},
+        {"name": "广州各站点PM2.5等级占比", "script": "guangzhou_pie_charts.py"},
+        {"name": "沈阳各站点PM2.5等级占比", "script": "shenyang_pie_charts.py"}
     ],
     "对比分析": [
-        {"name": "环保部五大城市空气质量检测结果", "script": "FP/five_cities_bar.py"},
-        {"name": "中国生态环境部各城市柱状图", "script": "FP/china_ministry_bar.py"},
-        {"name": "环保部五大城市2013-2015空气质量对比", "script": "FP/five_cities_yearly_comparison.py"},
-        {"name": "中国生态环境部与美国大使馆数据对比", "script": "FP/china_vs_us_comparison.py"}
+        {"name": "环保部五大城市空气质量检测结果", "script": "five_cities_bar.py"},
+        {"name": "中国生态环境部各城市柱状图", "script": "china_ministry_bar.py"},
+        {"name": "环保部五大城市2013-2015空气质量对比", "script": "five_cities_yearly_comparison.py"},
+        {"name": "中国生态环境部与美国大使馆数据对比", "script": "china_vs_us_comparison.py"}
     ]
 }
-
 # 辅助函数：执行脚本并生成图片
 def generate_plot(script_path):
     """
