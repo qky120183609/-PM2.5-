@@ -10,7 +10,7 @@ import sys
 df_all = pd.read_csv("daily_stats.csv", parse_dates=["stat_date"])
 
 # 字体正常显示中文
-plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 筛选上海数据
