@@ -17,7 +17,7 @@ colors = ['#00a8e1', '#99cc00', '#fcd300', '#ff6600', '#e30039', '#800080']
 explode = (0, 0.1, 0.2, 0.3, 0.4, 0.5)
 
 # 创建大图
-fig, axes = plt.subplots(1, 5, figsize=(110, 25))
+fig, axes = plt.subplots(1, 5, figsize=(22, 5))
 axes = axes.flatten()
 
 # 定义要画的所有图表
