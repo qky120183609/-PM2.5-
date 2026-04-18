@@ -9,7 +9,7 @@ import sys
 # 从 CSV 读取数据
 df_all = pd.read_csv("daily_stats.csv", parse_dates=["stat_date"])
 
-plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 配置
