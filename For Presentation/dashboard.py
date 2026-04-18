@@ -3,6 +3,7 @@ import subprocess
 import tempfile
 import os
 import warnings
+import sys  # 添加 sys 导入
 warnings.filterwarnings('ignore')
 
 # 设置页面配置
@@ -64,7 +65,7 @@ def generate_plot(script_name):
     try:
         # 执行脚本
         result = subprocess.run(
-            ["python", script_path, tmp_path],
+            [sys.executable, script_path, tmp_path],  # 只改了这一行：python -> sys.executable
             capture_output=True,
             text=True,
             timeout=30  # 设置超时时间
