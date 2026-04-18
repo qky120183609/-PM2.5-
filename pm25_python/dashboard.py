@@ -1,0 +1,118 @@
+import streamlit as st
+import subprocess
+import tempfile
+import os
+import warnings
+warnings.filterwarnings('ignore')
+
+# 设置页面配置
+st.set_page_config(
+    page_title="全国PM2.5数据分析可视化",
+    page_icon="🌬️",
+    layout="wide"
+)
+
+# 页面标题
+st.title("🌬️ 全国重点城市PM2.5数据分析可视化平台")
+st.divider()
+
+# 定义所有可执行的脚本配置
+SCRIPT_CONFIGS = {
+    # 第一类：各城市月均PM2.5趋势图
+    "趋势图": [
+        {"name": "北京月均PM2.5指数", "script": "北京市月均PM2.5指数.py"},
+        {"name": "上海月均PM2.5指数", "script": "上海市月均PM2.5指数.py"},
+        {"name": "成都月均PM2.5指数", "script": "成都市月均PM2.5指数.py"},
+        {"name": "广州月均PM2.5指数", "script": "广州市月均PM2.5指数.py"},
+        {"name": "沈阳月均PM2.5指数", "script": "沈阳市月均PM2.5指数.py"}
+    ],
+    # 第二类：各城市站点PM2.5等级占比饼图
+    "饼图": [
+        {"name": "北京各站点PM2.5等级占比", "script": "北京市各站点PM2.5等级占比饼图.py"},
+        {"name": "上海各站点PM2.5等级占比", "script": "上海市各站点PM2.5等级占比饼图.py"},
+        {"name": "成都各站点PM2.5等级占比", "script": "成都市各站点PM2.5等级占比饼图.py"},
+        {"name": "广州各站点PM2.5等级占比", "script": "广州市各站点PM2.5等级占比饼图.py"},
+        {"name": "沈阳各站点PM2.5等级占比", "script": "沈阳市各站点PM2.5等级占比饼图.py"}
+    ],
+    # 第三类：多城市对比分析图
+    "对比分析": [
+        {"name": "环保部五大城市空气质量检测结果", "script": "环保部五大城市空气质量检测结果.py"},
+        {"name": "中国生态环境部各城市柱状图", "script": "中国生态环境部各城市柱状图.py"},
+        {"name": "环保部五大城市2013-2015空气质量对比", "script": "环保部五大城市2013-2015空气质量检测结果对比.py"},
+        {"name": "中国生态环境部与美国大使馆数据对比", "script": "中国生态环境部与美国大使馆的数据对比.py"}
+    ]
+}
+
+# 辅助函数：执行脚本并生成图片
+def generate_plot(script_path):
+    """
+    执行指定的Python脚本，生成可视化图片并返回临时文件路径
+    """
+    # 创建临时文件
+    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
+        tmp_path = tmp.name
+    
+    try:
+        # 执行脚本
+        result = subprocess.run(
+            ["python", script_path, tmp_path],
+            capture_output=True,
+            text=True,
+            timeout=30  # 设置超时时间
+        )
+        
+        # 检查执行结果
+        if result.returncode == 0 and os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:
+            return tmp_path, None
+        else:
+            error_msg = f"脚本执行失败：{result.stderr}" if result.stderr else "脚本执行返回非0状态码"
+            return None, error_msg
+    except Exception as e:
+        return None, f"执行出错：{str(e)}"
+    finally:
+        # 确保临时文件如果生成失败能被清理
+        if os.path.exists(tmp_path) and os.path.getsize(tmp_path) == 0:
+            os.unlink(tmp_path)
+
+# 侧边栏导航
+st.sidebar.title("📊 功能导航")
+chart_type = st.sidebar.radio("选择图表类型", list(SCRIPT_CONFIGS.keys()))
+
+# 主内容区
+st.header(f"📈 {chart_type}")
+st.divider()
+
+# 显示对应类型的脚本按钮
+scripts = SCRIPT_CONFIGS[chart_type]
+cols = st.columns(min(3, len(scripts)))  # 自适应列数
+
+for idx, script_info in enumerate(scripts):
+    with cols[idx % len(cols)]:
+        if st.button(f"生成{script_info['name']}", use_container_width=True):
+            with st.spinner(f"正在生成{script_info['name']}..."):
+                img_path, error = generate_plot(script_info["script"])
+                
+                if img_path:
+                    # 显示图片
+                    st.subheader(script_info['name'])
+                    # 修复：use_column_width 替换为 use_container_width
+                    st.image(img_path, caption=script_info['name'], use_container_width=True)
+                    
+                    # 提供下载按钮
+                    with open(img_path, "rb") as f:
+                        st.download_button(
+                            label="下载图片",
+                            data=f,
+                            file_name=f"{script_info['name']}.png",
+                            mime="image/png",
+                            use_container_width=True
+                        )
+                    
+                    # 删除临时文件
+                    os.unlink(img_path)
+                else:
+                    st.error(f"生成失败：{error}")
+
+# 页脚信息
+st.divider()
+st.caption("数据来源：全国重点城市PM2.5监测数据库 | 生成时间：2026")
