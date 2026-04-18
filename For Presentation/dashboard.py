@@ -16,6 +16,11 @@ st.set_page_config(
 st.title("🌬️ 全国重点城市PM2.5数据分析可视化平台")
 st.divider()
 
+# 获取当前文件所在目录
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 可视化脚本都在同一个目录下
+SCRIPTS_DIR = CURRENT_DIR
+
 # 定义所有可执行的脚本配置
 SCRIPT_CONFIGS = {
     "趋势图": [
@@ -39,11 +44,19 @@ SCRIPT_CONFIGS = {
         {"name": "中国生态环境部与美国大使馆数据对比", "script": "china_vs_us_comparison.py"}
     ]
 }
+
 # 辅助函数：执行脚本并生成图片
-def generate_plot(script_path):
+def generate_plot(script_name):
     """
     执行指定的Python脚本，生成可视化图片并返回临时文件路径
     """
+    # 构建完整的脚本路径
+    script_path = os.path.join(SCRIPTS_DIR, script_name)
+    
+    # 检查脚本是否存在
+    if not os.path.exists(script_path):
+        return None, f"脚本文件不存在：{script_name}"
+    
     # 创建临时文件
     with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
         tmp_path = tmp.name
@@ -63,12 +76,10 @@ def generate_plot(script_path):
         else:
             error_msg = f"脚本执行失败：{result.stderr}" if result.stderr else "脚本执行返回非0状态码"
             return None, error_msg
+    except subprocess.TimeoutExpired:
+        return None, "脚本执行超时（30秒）"
     except Exception as e:
         return None, f"执行出错：{str(e)}"
-    finally:
-        # 确保临时文件如果生成失败能被清理
-        if os.path.exists(tmp_path) and os.path.getsize(tmp_path) == 0:
-            os.unlink(tmp_path)
 
 # 侧边栏导航
 st.sidebar.title("📊 功能导航")
