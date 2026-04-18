@@ -20,26 +20,26 @@ st.divider()
 SCRIPT_CONFIGS = {
     # 第一类：各城市月均PM2.5趋势图
     "趋势图": [
-        {"name": "北京月均PM2.5指数", "script": "pm25_python/北京市月均PM2.5指数.py"},
-        {"name": "上海月均PM2.5指数", "script": "pm25_python/上海市月均PM2.5指数.py"},
-        {"name": "成都月均PM2.5指数", "script": "pm25_python/成都市月均PM2.5指数.py"},
-        {"name": "广州月均PM2.5指数", "script": "pm25_python/广州市月均PM2.5指数.py"},
-        {"name": "沈阳月均PM2.5指数", "script": "pm25_python/沈阳市月均PM2.5指数.py"}
+        {"name": "北京月均PM2.5指数", "script": "FP/北京市月均PM2.5指数.py"},
+        {"name": "上海月均PM2.5指数", "script": "FP/上海市月均PM2.5指数.py"},
+        {"name": "成都月均PM2.5指数", "script": "FP/成都市月均PM2.5指数.py"},
+        {"name": "广州月均PM2.5指数", "script": "FP/广州市月均PM2.5指数.py"},
+        {"name": "沈阳月均PM2.5指数", "script": "FP/沈阳市月均PM2.5指数.py"}
     ],
     # 第二类：各城市站点PM2.5等级占比饼图
     "饼图": [
-        {"name": "北京各站点PM2.5等级占比", "script": "pm25_python/北京市各站点PM2.5等级占比饼图.py"},
-        {"name": "上海各站点PM2.5等级占比", "script": "pm25_python/上海市各站点PM2.5等级占比饼图.py"},
-        {"name": "成都各站点PM2.5等级占比", "script": "pm25_python/成都市各站点PM2.5等级占比饼图.py"},
-        {"name": "广州各站点PM2.5等级占比", "script": "pm25_python/广州市各站点PM2.5等级占比饼图.py"},
-        {"name": "沈阳各站点PM2.5等级占比", "script": "pm25_python/沈阳市各站点PM2.5等级占比饼图.py"}
+        {"name": "北京各站点PM2.5等级占比", "script": "FP/北京市各站点PM2.5等级占比饼图.py"},
+        {"name": "上海各站点PM2.5等级占比", "script": "FP/上海市各站点PM2.5等级占比饼图.py"},
+        {"name": "成都各站点PM2.5等级占比", "script": "FP/成都市各站点PM2.5等级占比饼图.py"},
+        {"name": "广州各站点PM2.5等级占比", "script": "FP/广州市各站点PM2.5等级占比饼图.py"},
+        {"name": "沈阳各站点PM2.5等级占比", "script": "FP/沈阳市各站点PM2.5等级占比饼图.py"}
     ],
     # 第三类：多城市对比分析图
     "对比分析": [
-        {"name": "环保部五大城市空气质量检测结果", "script": "pm25_python/环保部五大城市空气质量检测结果.py"},
-        {"name": "中国生态环境部各城市柱状图", "script": "pm25_python/中国生态环境部各城市柱状图.py"},
-        {"name": "环保部五大城市2013-2015空气质量对比", "script": "pm25_python/环保部五大城市2013-2015空气质量检测结果对比.py"},
-        {"name": "中国生态环境部与美国大使馆数据对比", "script": "pm25_python/中国生态环境部与美国大使馆的数据对比.py"}
+        {"name": "环保部五大城市空气质量检测结果", "script": "FP/环保部五大城市空气质量检测结果.py"},
+        {"name": "中国生态环境部各城市柱状图", "script": "FP/中国生态环境部各城市柱状图.py"},
+        {"name": "环保部五大城市2013-2015空气质量对比", "script": "FP/环保部五大城市2013-2015空气质量检测结果对比.py"},
+        {"name": "中国生态环境部与美国大使馆数据对比", "script": "FP/中国生态环境部与美国大使馆的数据对比.py"}
     ]
 }
 
