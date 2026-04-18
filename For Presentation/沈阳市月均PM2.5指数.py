@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 import sys
 
 # 从 CSV 读取数据
-df_all = pd.read_csv("daily_stats.csv", parse_dates=["stat_date"])
+df_all = pd.read_csv("../daily_stats.csv", parse_dates=["stat_date"])
 
 # 字体正常显示中文
-plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 筛选沈阳数据
@@ -44,7 +44,6 @@ ax.set_title('沈阳市月均PM2.5指数 (2013-2015)')
 ax.legend(loc='upper right')
 ax.grid(True, alpha=0.3)
 plt.xticks(range(0, len(months), 2), months[::2], rotation=45)
-
 plt.tight_layout()
 
 output_path = sys.argv[1] if len(sys.argv) > 1 else 'temp.png'
