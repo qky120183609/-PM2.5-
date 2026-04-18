@@ -11,7 +11,7 @@ import sys
 df_all = pd.read_csv("daily_stats.csv", parse_dates=["stat_date"])
 
 # 解决中文显示
-plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 城市ID
