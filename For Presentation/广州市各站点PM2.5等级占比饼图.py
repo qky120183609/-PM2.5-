@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 import sys
 
 # 从 CSV 读取数据
-df_all = pd.read_csv("daily_stats.csv", parse_dates=["stat_date"])
+df_all = pd.read_csv("../daily_stats.csv", parse_dates=["stat_date"])
 
-plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 配置
