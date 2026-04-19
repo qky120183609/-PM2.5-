@@ -49,9 +49,11 @@ cd ../For\ Presentation && python export_csv.py
 ### 4. 运行应用
 streamlit run dashboard.py
 浏览器打开 http://localhost:8501
-数据来源
+
+### 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
-核心亮点
+
+### 核心亮点
 智能数据清洗：城市自适应监测点匹配、负数PM2.5自动清除、缺失值标准化处理
 灵活数据库设计：通用列结构（pm_cn1/cn2/cn3/us）适配2-3个监测点的城市差异
 双模式架构：SQL Server本地分析 + CSV云端演示，支持大数据量与零配置部署
