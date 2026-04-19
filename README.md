@@ -3,6 +3,40 @@
 
 在线演示：https://pm25analysis.streamlit.app/
 
+
+## 项目概览
+
+```mermaid
+mindmap
+  root((🌬️ PM2.5<br/>数据分析平台))
+    📊 数据规模
+      2010-2015年 6年数据
+      5大城市 北京/上海/成都/广州/沈阳
+      400万+ 观测数据点
+      15+ 数据维度
+    🔧 功能模块
+      趋势分析 月均折线图
+      等级分布 空气质量饼图
+      对比分析 中美数据差异
+    🏗️ 技术架构
+      Python pandas处理
+      SQL Server 数据库
+      Streamlit 交互界面
+      Plotly/Matplotlib 可视化
+    📁 项目结构
+      pm25_python 本地分析脚本
+      pm25_sql 数据库脚本
+      For Presentation 云端部署
+    🚀 使用方式
+      本地部署 SQL Server+Python
+      云端演示 Streamlit Cloud
+    ⚡ 核心亮点
+      智能数据清洗
+      双模式架构
+      中美数据对比
+      零成本部署
+```
+
 ## 数据规模
 - **时间跨度**：2010-2015 年（6 年）
 - **覆盖城市**：北京、上海、成都、广州、沈阳（5 城市）
