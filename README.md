@@ -38,13 +38,12 @@
       └── README.md
 
 ## 本地运行
-
 ```bash
 git clone https://github.com/qky120183609/-PM2.5-.git
 cd -PM2.5-
 pip install streamlit
 streamlit run dashboard.py
-
+```
 ### 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
 
