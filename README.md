@@ -40,10 +40,10 @@
 
 ## 本地运行
 
-- bash
+bash
 git clone https://github.com/qky120183609/-PM2.5-.git
-- cd -PM2.5-
-- pip install -r For\ Presentation/requirements.txt
+cd -PM2.5-
+pip install -r For\ Presentation/requirements.txt
 
 ### 1. 执行pm25_sql/下的SQL脚本创建数据库
 
