@@ -6,6 +6,7 @@
 ## 数据流程
 
 原始CSV → 数据清洗 → SQL Server → 日报表计算 → CSV导出 → Streamlit可视化
+（本地：原始CSV → 数据清洗 → SQL Server → 日报表计算 → 本地可视化）
 
 ## 功能特性
 
