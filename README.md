@@ -37,13 +37,21 @@
       ├── pm25_sql/                   # 表结构创建、日报表聚合+AQI计算
       └── README.md
 
+
 ## 本地运行
+### 1. 下载必要文件
+从仓库下载以下文件夹到本地：
+- `pm25_python/` —— Python 数据处理脚本
+- `pm25_sql/` —— SQL 数据库脚本
+### 2. 创建数据库并导入数据
+在 SQL Server 中依次执行：
+1. **创建原始数据表**：执行 `pm25_sql/PM2.5.sql`
+2. **清洗并导入数据**：运行 `pm25_python/pm.25_1.py`
+3. **生成日报表**：执行 `pm25_sql/pm25ana1.sql`
+### 3. 启动可视化界面
 ```bash
-git clone https://github.com/qky120183609/-PM2.5-.git
-cd -PM2.5-
 pip install streamlit
 streamlit run dashboard.py
-```
 ### 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
 
