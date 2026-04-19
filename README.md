@@ -40,10 +40,10 @@
 
 ## 本地运行
 
-bash
-git clone https://github.com/qky120183609/-PM2.5-.git
-cd -PM2.5-
-pip install -r For\ Presentation/requirements.txt
+- bash
+- git clone https://github.com/qky120183609/-PM2.5-.git
+- cd -PM2.5-
+- pip install -r For\ Presentation/requirements.txt
 
 ### 1. 执行pm25_sql/下的SQL脚本创建数据库
 
@@ -54,8 +54,8 @@ cd pm25_python && python pm.25_1.py
 cd ../For\ Presentation && python export_csv.py
 
 ### 4. 运行应用
-streamlit run dashboard.py
-浏览器打开 http://localhost:8501
+- streamlit run dashboard.py
+- 浏览器打开 http://localhost:8501
 
 ### 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
