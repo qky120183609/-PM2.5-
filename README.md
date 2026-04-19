@@ -3,68 +3,67 @@
 
 在线演示：https://pm25analysis.streamlit.app/
 
+## 数据流程
+
+原始CSV → 数据清洗 → SQL Server → 日报表计算 → CSV导出 → Streamlit可视化
+
 ## 功能特性
 
-- 多城市切换：北京 / 上海 / 成都 / 广州 / 沈阳
-- 动态日期筛选：支持任意时间段数据查询
-- 五种可视化图表：
-  - PM2.5 趋势折线图（国控平均 vs 美国使馆）
-  - 空气质量等级占比饼图
-  - 各监测点月均对比柱状图
-  - 月均热力图（年份 vs 月份）
-  - 年度分布箱线图
-- 实时统计摘要：总天数、国控平均、美国使馆平均、优良天数
-- 原始数据表格展示
-
+- **趋势分析**：五城市月均PM2.5折线图（国控站点 vs 美国使馆）
+- **等级分布**：各站点空气质量等级占比饼图（优/良/轻度/中度/重度/严重污染）
+- **对比分析**：五城市横向对比、2013-2015年度趋势、中美数据差异分析
 
 ## 技术栈
 
-- 后端数据处理：Python (pandas, sqlalchemy, pyodbc)
-- 数据库：SQL Server
-- 可视化：Plotly, Matplotlib
+- 数据存储：SQL Server + PyODBC/SQLAlchemy
+- 数据处理：Pandas + NumPy
+- 可视化：Matplotlib
 - 交互界面：Streamlit
-- 部署：Streamlit Cloud + GitHub
-
+- 部署：Streamlit Cloud
 
 ## 项目结构
-
-pm25-dashboard/
-├── dashboard.py          # Streamlit 主程序
-├── daily_stats.csv       # 数据快照（用于在线演示）
-├── requirements.txt      # Python 依赖
-└── README.md             # 项目说明
+-PM2.5-/
+├── For Presentation/           # Streamlit云端部署版本
+│   ├── dashboard.py           # Streamlit主程序
+│   ├── export_csv.py          # SQL Server → CSV导出
+│   ├── daily_stats.csv        # 日报表数据快照
+│   ├── *_monthly_avg.py      # 五城市月均趋势图（5个）
+│   ├── *_pie_charts.py       # 五城市等级分布饼图（5个）
+│   ├── five_cities_bar.py     # 五城市对比柱状图
+│   ├── five_cities_yearly_comparison.py  # 年度对比
+│   ├── china_ministry_bar.py  # 生态环境部数据
+│   ├── china_vs_us_comparison.py  # 中美数据对比
+│   ├── requirements.txt
+│   └── packages.txt
+├── pm25_python/
+│   └── pm.25_1.py            # CSV数据清洗+SQL入库
+├── pm25_sql/
+│   ├── PM2.5.sql             # 表结构创建
+│   └── pm25ana1.sql          # 日报表聚合+AQI计算
+└── README.md
 
 
 ## 本地运行
 
-1. 克隆仓库
-   git clone https://github.com/你的用户名/pm25-dashboard.git
-   cd pm25-dashboard
+```bash
+git clone https://github.com/qky120183609/-PM2.5-.git
+cd -PM2.5-
+pip install -r For\ Presentation/requirements.txt
 
-2. 安装依赖
-   pip install -r requirements.txt
+# 1. 执行pm25_sql/下的SQL脚本创建数据库
+# 2. 导入数据
+cd pm25_python && python pm.25_1.py
 
-3. 运行应用
-   streamlit run dashboard.py
+# 3. 导出日报表
+cd ../For\ Presentation && python export_csv.py
 
-浏览器自动打开 http://localhost:8501 即可使用。
-
-
-## 数据来源
-
-数据来自公开的空气质量监测平台，涵盖以下城市及监测点：
-
-- 北京：东四、东四环、农展馆 + 美国使馆
-- 上海：静安、徐汇 + 美国使馆
-- 成都：草堂寺、沙河铺 + 美国使馆
-- 广州：市站、第五中学 + 美国使馆
-- 沈阳：太原街、小河沿 + 美国使馆
-
-时间范围：2010-01-01 至 2015-12-31
-
-
-## 部分分析结论
-
-- 北京冬季 PM2.5 浓度显著高于夏季，重度污染主要集中于 11 月至次年 2 月
-- 成都 2013-2015 年空气质量呈逐年改善趋势
-- 美国使馆监测值与国控站点趋势一致，但数值略高
+# 4. 运行应用
+streamlit run dashboard.py
+浏览器打开 http://localhost:8501
+数据来源
+UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
+核心亮点
+智能数据清洗：城市自适应监测点匹配、负数PM2.5自动清除、缺失值标准化处理
+灵活数据库设计：通用列结构（pm_cn1/cn2/cn3/us）适配2-3个监测点的城市差异
+双模式架构：SQL Server本地分析 + CSV云端演示，支持大数据量与零配置部署
+中美数据对比：同屏展示中国生态环境部与美国大使馆监测结果差异
