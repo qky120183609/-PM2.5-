@@ -52,6 +52,8 @@
 ```bash
 pip install streamlit
 streamlit run dashboard.py
+```
+
 ### 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
 
