@@ -16,11 +16,11 @@
 
 ## 技术栈
 
-- 数据存储：SQL Server + PyODBC/SQLAlchemy
-- 数据处理：Pandas + NumPy
-- 可视化：Matplotlib
+- 后端数据处理：Python (pandas, sqlalchemy, pyodbc)
+- 数据库：SQL Server
+- 可视化：Plotly, Matplotlib
 - 交互界面：Streamlit
-- 部署：Streamlit Cloud
+- 部署：Streamlit Cloud + GitHub
 
 ## 项目结构
 -PM2.5-/
