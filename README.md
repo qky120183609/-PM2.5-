@@ -54,14 +54,14 @@ pip install streamlit
 streamlit run dashboard.py
 ```
 
-### 云端演示
+## 云端演示
 无需本地配置，直接访问在线演示：https://pm25analysis.streamlit.app/
 或自行部署，详细部署参数可参考 [Streamlit 官方文档](https://docs.streamlit.io/deploy/streamlit-cloud)
 
-### 数据来源
+## 数据来源
 UCI Machine Learning Repository - Beijing PM2.5 Data及扩展城市数据集，时间范围2010-2015，包含各城市国控站点+美国驻华大使馆监测站。
 
-### 核心亮点
+## 核心亮点
 
 - 智能数据清洗：城市自适应监测点匹配、负数PM2.5自动清除、缺失值标准化处理
 - 灵活数据库设计：通用列结构（pm_cn1/cn2/cn3/us）适配2-3个监测点的城市差异
