@@ -23,10 +23,10 @@
 
 ## 项目结构
 -PM2.5-/
-├── For Presentation/           # Streamlit云端部署版本
-├── pm25_python/                # SQL Server本地分析版本
-├── pm25_sql/                   # 表结构创建、日报表聚合+AQI计算
-└── README.md
+      ├── For Presentation/           # Streamlit云端部署版本
+      ├── pm25_python/                # SQL Server本地分析版本
+      ├── pm25_sql/                   # 表结构创建、日报表聚合+AQI计算
+      └── README.md
 
 
 ## 本地运行
