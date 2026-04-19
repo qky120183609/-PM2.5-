@@ -24,22 +24,8 @@
 ## 项目结构
 -PM2.5-/
 ├── For Presentation/           # Streamlit云端部署版本
-│   ├── dashboard.py           # Streamlit主程序
-│   ├── export_csv.py          # SQL Server → CSV导出
-│   ├── daily_stats.csv        # 日报表数据快照
-│   ├── *_monthly_avg.py      # 五城市月均趋势图（5个）
-│   ├── *_pie_charts.py       # 五城市等级分布饼图（5个）
-│   ├── five_cities_bar.py     # 五城市对比柱状图
-│   ├── five_cities_yearly_comparison.py  # 年度对比
-│   ├── china_ministry_bar.py  # 生态环境部数据
-│   ├── china_vs_us_comparison.py  # 中美数据对比
-│   ├── requirements.txt
-│   └── packages.txt
-├── pm25_python/
-│   └── pm.25_1.py            # CSV数据清洗+SQL入库
-├── pm25_sql/
-│   ├── PM2.5.sql             # 表结构创建
-│   └── pm25ana1.sql          # 日报表聚合+AQI计算
+├── pm25_python/                # SQL Server本地分析版本
+├── pm25_sql/                   # 表结构创建、日报表聚合+AQI计算
 └── README.md
 
 
