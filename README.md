@@ -1,7 +1,7 @@
 # -PM2.5-
 基于 **Streamlit + SQL Server + Python** 构建的交互式空气质量数据分析平台，支持北京、上海、成都、广州、沈阳五城市 2010-2015 年 PM2.5 数据的可视化分析与对比。
 
-在线演示：https://你的用户名-仓库名.streamlit.app （部署后替换）
+在线演示：https://pm25analysis.streamlit.app/
 
 ## 功能特性
 
