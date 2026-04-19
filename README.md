@@ -41,7 +41,7 @@
 ## 本地运行
 
 - bash
-- git clone https://github.com/qky120183609/-PM2.5-.git
+git clone https://github.com/qky120183609/-PM2.5-.git
 - cd -PM2.5-
 - pip install -r For\ Presentation/requirements.txt
 
