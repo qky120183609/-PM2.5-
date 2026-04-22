@@ -9,12 +9,11 @@ warnings.filterwarnings('ignore')
 # 设置页面配置
 st.set_page_config(
     page_title="全国PM2.5数据分析可视化",
-    page_icon="🌬️",
     layout="wide"
 )
 
 # 页面标题
-st.title("🌬️ 全国重点城市PM2.5数据分析可视化平台")
+st.title(" 全国重点城市PM2.5数据分析可视化平台")
 st.divider()
 
 # 获取当前文件所在目录
